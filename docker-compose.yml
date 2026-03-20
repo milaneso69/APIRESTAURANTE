@@ -24,11 +24,11 @@ services:
       - app-network
     environment:
       - DB_HOST=auth-db
-      - DB_USER=user
-      - DB_PASSWORD=password
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=auth_db
       - DB_PORT=5432
-      - JWT_SECRET=b6e70d520b3ce38f4e30741efce06a0583a50c71135af30a843676f352c56a48cb8b92faca76bebe9bd8d35f2e3c4f6039f6a259046582986acdbbbc457677e1
+      - JWT_SECRET=${JWT_SECRET}
     depends_on:
       - auth-db
 
@@ -41,11 +41,11 @@ services:
       - app-network
     environment:
       - DB_HOST=usuarios-db
-      - DB_USER=user
-      - DB_PASSWORD=password
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=usuarios_db
       - DB_PORT=5432
-      - AUTH_SERVICE_URL=http://auth-service:3000
+      - AUTH_SERVICE_URL=${AUTH_SERVICE_URL}
     depends_on:
       - usuarios-db
       - auth-service
@@ -59,11 +59,11 @@ services:
       - app-network
     environment:
       - DB_HOST=menu_inventario-db
-      - DB_USER=user
-      - DB_PASSWORD=password
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=menu_inventario_db
       - DB_PORT=5432
-      - AUTH_SERVICE_URL=http://auth-service:3000
+      - AUTH_SERVICE_URL=${AUTH_SERVICE_URL}
     depends_on:
       - menu_inventario-db
       - auth-service
@@ -77,11 +77,11 @@ services:
       - app-network
     environment:
       - DB_HOST=pagos-db
-      - DB_USER=user
-      - DB_PASSWORD=password
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=pagos_db
       - DB_PORT=5432
-      - AUTH_SERVICE_URL=http://auth-service:3000
+      - AUTH_SERVICE_URL=${AUTH_SERVICE_URL}
     depends_on:
       - pagos-db
       - auth-service
@@ -95,11 +95,11 @@ services:
       - app-network
     environment:
       - DB_HOST=comandas-db
-      - DB_USER=user
-      - DB_PASSWORD=password
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=comandas_db
       - DB_PORT=5432
-      - AUTH_SERVICE_URL=http://auth-service:3000
+      - AUTH_SERVICE_URL=${AUTH_SERVICE_URL}
       - PAGOS_SERVICE_URL=http://pagos-service:3000
       - USUARIOS_SERVICE_URL=http://usuarios-service:3000
       - MENU_INVENTARIO_SERVICE_URL=http://menu-inventario-service:3000
@@ -118,8 +118,8 @@ services:
     networks:
       - app-network
     environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=auth_db
     volumes:
       - ./auth/db-init:/docker-entrypoint-initdb.d
@@ -131,8 +131,8 @@ services:
     networks:
       - app-network
     environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=usuarios_db
     volumes:
       - ./usuarios/db-init:/docker-entrypoint-initdb.d
@@ -144,8 +144,8 @@ services:
     networks:
       - app-network
     environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=menu_inventario_db
     volumes:
       - ./menu_inventario/db-init:/docker-entrypoint-initdb.d
@@ -157,8 +157,8 @@ services:
     networks:
       - app-network
     environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=pagos_db
     volumes:
       - ./pagos/db-init:/docker-entrypoint-initdb.d
@@ -170,8 +170,8 @@ services:
     networks:
       - app-network
     environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=comandas_db
     volumes:
       - ./comandas/db-init:/docker-entrypoint-initdb.d

@@ -1,6 +1,3 @@
--- =========================================================
--- SISTEMA RESTAURANTE: AUTH SERVICE (PostgreSQL)
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS rol (
   rol_id      SERIAL PRIMARY KEY,
@@ -18,9 +15,6 @@ CREATE TABLE IF NOT EXISTS auth_users (
   deleted_at  TIMESTAMPTZ NULL
 );
 
--- =========================
--- DATOS DE EJEMPLO
--- =========================
 
 INSERT INTO rol (nombre, descripcion) VALUES
 ('ADMIN', 'Control total del sistema'),
@@ -33,15 +27,15 @@ INSERT INTO rol (nombre, descripcion) VALUES
 ('CHEF', 'Administra inventario e insumos')
 ON CONFLICT (nombre) DO NOTHING;
 
--- Para testing (Contraseña: password123 asumiendo hash en código o texto plano temporalmente)
+-- Para testing (Usuarios personalizados)
 INSERT INTO auth_users (email, password, rol_id) VALUES
-('admin@resto.mx', 'password123', (SELECT rol_id FROM rol WHERE nombre='ADMIN')),
-('carlos.ruiz@resto.mx', 'password123', (SELECT rol_id FROM rol WHERE nombre='GERENTE')),
-('ana.lopez@resto.mx', 'password123', (SELECT rol_id FROM rol WHERE nombre='MESERO')),
-('luis.santos@resto.mx', 'password123', (SELECT rol_id FROM rol WHERE nombre='MESERO')),
-('marta.garcia@resto.mx', 'password123', (SELECT rol_id FROM rol WHERE nombre='CAJERO')),
-('jorge.vega@resto.mx', 'password123', (SELECT rol_id FROM rol WHERE nombre='COCINA')),
-('juan.perez@mail.com', 'password123', (SELECT rol_id FROM rol WHERE nombre='CLIENTE')),
-('laura.gomez@mail.com', 'password123', (SELECT rol_id FROM rol WHERE nombre='CLIENTE')),
-('facturacion@acme.com', 'password123', (SELECT rol_id FROM rol WHERE nombre='CLIENTE'));
+('admin@sabores.com.mx', 'AdminResto2024!', (SELECT rol_id FROM rol WHERE nombre='ADMIN')),
+('roberto.jimenez@sabores.com.mx', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='GERENTE')),
+('elena.torres@sabores.com.mx', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='MESERO')),
+('miguel.castro@sabores.com.mx', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='MESERO')),
+('sofia.mendoza@sabores.com.mx', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='CAJERO')),
+('ricardo.luna@sabores.com.mx', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='COCINA')),
+('alicia.vargas@ejemplo.com', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='CLIENTE')),
+('sergio.ruiz@ejemplo.com', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='CLIENTE')),
+('compras@corporativo.com', 'UserResto2024!', (SELECT rol_id FROM rol WHERE nombre='CLIENTE'));
 ON CONFLICT (email) DO NOTHING;

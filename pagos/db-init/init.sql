@@ -1,6 +1,3 @@
--- =========================================================
--- SISTEMA RESTAURANTE: PAGOS SERVICE (PostgreSQL)
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS pago (
   pago_id      SERIAL PRIMARY KEY,

@@ -1,6 +1,3 @@
--- =========================================================
--- SISTEMA RESTAURANTE: MENU_INVENTARIO SERVICE (PostgreSQL)
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS categoria_menu (
   categoria_id SERIAL PRIMARY KEY,

@@ -1,6 +1,3 @@
--- =========================================================
--- SISTEMA RESTAURANTE: COMANDAS SERVICE (PostgreSQL)
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS mesa (
   mesa_id     SERIAL PRIMARY KEY,

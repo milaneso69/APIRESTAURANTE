@@ -1,6 +1,3 @@
--- =========================================================
--- SISTEMA RESTAURANTE: USUARIOS SERVICE (PostgreSQL)
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS empleado (
   empleado_id SERIAL PRIMARY KEY,
@@ -37,17 +34,14 @@ CREATE TABLE IF NOT EXISTS turno_asignacion (
   UNIQUE (turno_id, empleado_id, fecha)
 );
 
--- =========================
--- DATOS DE EJEMPLO
--- =========================
 
--- Empleados (El auth_user_id asume el orden del script de auth. 1:carlos, 2:ana, 3:luis, 4:marta, 5:jorge)
+-- Empleados (El auth_user_id asume el orden del script de auth. 2:roberto, 3:elena, 4:miguel, 5:sofia, 6:ricardo)
 INSERT INTO empleado (auth_user_id, nombre, apellido_p, apellido_m, telefono) VALUES
-(1, 'Carlos', 'Ruiz', 'Hernández', '2711002001'),
-(2, 'Ana', 'López', 'Martínez',   '2711002002'),
-(3, 'Luis', 'Santos', 'Díaz',     '2711002003'),
-(4, 'Marta', 'García', 'Pérez',   '2711002004'),
-(5, 'Jorge', 'Vega', 'Nava',      '2711002005')
+(2, 'Roberto', 'Jiménez', 'Pérez', '2711002001'),
+(3, 'Elena', 'Torres', 'Sánchez',   '2711002002'),
+(4, 'Miguel', 'Castro', 'Luna',     '2711002003'),
+(5, 'Sofía', 'Mendoza', 'García',   '2711002004'),
+(6, 'Ricardo', 'Luna', 'Vázquez',    '2711002005')
 ON CONFLICT (auth_user_id) DO NOTHING;
 
 -- Turnos
@@ -64,9 +58,9 @@ INSERT INTO turno_asignacion (turno_id, empleado_id, fecha) VALUES
 (1, 5, CURRENT_DATE)
 ON CONFLICT DO NOTHING;
 
--- Clientes (6:juan, 7:laura, 8:acme)
+-- Clientes (7:alicia, 8:sergio, 9:corporativo)
 INSERT INTO cliente (auth_user_id, nombre, telefono) VALUES
-(6, 'Juan Pérez', '2712003001'),
-(7, 'Laura Gómez', '2712003002'),
-(8, 'Empresa ACME (Comidas)', '2712003999')
+(7, 'Alicia Vargas', '2712003001'),
+(8, 'Sergio Ruiz', '2712003002'),
+(9, 'Corporativo Alimentos', '2712003999')
 ON CONFLICT (auth_user_id) DO NOTHING;
