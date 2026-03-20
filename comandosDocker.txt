@@ -1,0 +1,72 @@
+## Comandos Docker
+
+docker-compose build.
+Descripción: Construye las imágenes de los servicios definidos en el archivo docker-compose.yml.
+docker-compose up -d
+Descripción: Inicia los servicios definidos en el archivo docker-compose.yml en modo detached (en segundo plano).
+
+docker-compose down
+Descripción: Detiene y elimina los contenedores, redes y volúmenes creados por docker-compose up.
+
+docker ps
+Descripción: Muestra los contenedores en ejecución.
+
+docker ps -a
+Descripción: Muestra todos los contenedores, incluyendo los que están detenidos.
+
+docker stop <id>
+Descripción: Detiene un contenedor en ejecución utilizando su ID.
+
+docker rm <id>
+Descripción: Elimina un contenedor detenido utilizando su ID.
+
+docker rmi <id>
+Descripción: Elimina una imagen de Docker utilizando su ID.
+
+docker-compose logs nombre-del-servicio
+Descripción: Muestra los logs de un servicio específico definido en docker-compose.yml.
+
+docker exec -it nombre-del-contenedor bash
+Descripción: Inicia una sesión interactiva de bash dentro de un contenedor en ejecución.
+
+docker inspect nombre-del-contenedor
+Descripción: Muestra información detallada sobre un contenedor.
+
+docker network ls
+Descripción: Lista todas las redes de Docker.
+
+docker network inspect nombre-de-la-red
+Descripción: Muestra información detallada sobre una red específica de Docker.
+
+docker volume ls
+Descripción: Lista todos los volúmenes de Docker.
+
+docker volume inspect nombre-del-volumen
+Descripción: Muestra información detallada sobre un volumen específico.
+
+docker system prune -a
+Descripción: Elimina todos los recursos no utilizados (contenedores detenidos, redes no utilizadas, imágenes sin etiquetar y caché de construcción).
+
+docker system prune --volumes
+Descripción: Elimina todos los recursos no utilizados, incluyendo volúmenes.
+
+docker system df
+Descripción: Muestra el uso de espacio en disco de Docker.
+
+docker system events
+Descripción: Muestra eventos en tiempo real del sistema Docker.
+
+docker system info
+Descripción: Muestra información del sistema Docker.
+
+docker stats
+Descripción: Muestra estadísticas de uso de recursos de los contenedores en ejecución.
+
+docker top nombre-del-contenedor
+Descripción: Muestra los procesos en ejecución dentro de un contenedor específico.
+
+docker cp nombre-del-contenedor:/ruta/en/contenedor /ruta/en/host
+Descripción: Copia archivos o directorios desde un contenedor al sistema host.
+
+docker cp /ruta/en/host:/ruta/en/contenedor nombre-del-contenedor:/ruta/en/contenedor
+Descripción: Copia archivos o directorios desde el sistema host a un contenedor.
